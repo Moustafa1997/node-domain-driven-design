@@ -19,6 +19,6 @@ export class CouchCreatedSubscriber implements EventSubscriber {
     if (await this.deps.bookableCouchRepository.find(bookableCouch.id)) {
       return;
     }
-    return this.deps.bookableCouchRepository.add(bookableCouch);
+    await this.deps.bookableCouchRepository.add(bookableCouch);
   }
 }

@@ -37,6 +37,6 @@ export class BookingFinishedSubscriber implements EventSubscriber {
       revieweeId: Guid.parse(hostId),
     });
 
-    return this.deps.bookingReviewRepository.add(hostReview, guestReview);
+    await this.deps.bookingReviewRepository.add(hostReview, guestReview);
   }
 }
