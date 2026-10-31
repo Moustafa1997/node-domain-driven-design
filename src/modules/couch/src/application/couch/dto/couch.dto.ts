@@ -1,7 +1,9 @@
 import { Guid } from "guid-typescript";
+import { AggregateId } from "@travelhoop/shared-kernel";
+import { CouchProps } from "../../../domain";
 
 export class CouchDto {
-  id: Guid;
+  id: AggregateId;
 
   hostId: Guid;
 
@@ -13,7 +15,7 @@ export class CouchDto {
 
   createdAt: Date;
 
-  constructor(props: CouchDto) {
+  constructor(props: CouchProps) {
     Object.assign(this, props);
   }
 }
