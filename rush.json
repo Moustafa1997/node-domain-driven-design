@@ -10,7 +10,7 @@
   "projectFolderMaxDepth": 3,
   "gitPolicy": {},
   "repository": {
-    "url": "https://github.com/mgce/modular-monolith-nodejs",
+    "url": "https://github.com/Moustafa1997/node-domain-driven-design",
     "defaultBranch": "master",
     "defaultRemote": "origin"
   },
