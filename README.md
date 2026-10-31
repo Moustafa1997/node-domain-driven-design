@@ -6,8 +6,9 @@
 > [`mgce/modular-monolith-nodejs`](https://github.com/mgce/modular-monolith-nodejs).
 > On top of the original architecture I have:
 >
-> - repaired the ESLint toolchain (the shared config was broken and linting never ran) and brought every package to a lint-clean state;
 > - implemented real **transactional command handling** — the `TransactionalCommandDispatcherDecorator` now wraps each command in a single database transaction (unit of work) instead of being a stub, verified against PostgreSQL;
+> - **refactored the `couch` module into full DDD layering** (`domain` / `application` / `infrastructure` / `api`) to match the `booking` module — a rich aggregate with behaviour, a repository interface/implementation split, command handlers and a query service. This also fixed a bug where couch updates were never persisted;
+> - repaired the ESLint toolchain (the shared config was broken and linting never ran) and brought every package to a lint-clean state;
 > - restored a green build / lint / test workspace (10 projects build, 18 tests pass).
 >
 > See the project's architecture notes below and the ADRs in `./docs/adr`.

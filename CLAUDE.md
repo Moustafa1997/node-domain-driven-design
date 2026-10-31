@@ -52,10 +52,13 @@ npm run lint:fix     # eslint --fix
 
 - `src/app/travelhoop` — the composition root / HTTP application (`@travelhoop/app`).
 - `src/app/scheduler` — the scheduler application.
-- `src/modules/*` — business modules. `booking` is the rich domain and uses full
-  DDD layering (`domain` / `application` / `infrastructure` / `api`). `couch`,
-  `user` and `review` are simpler CRUD-style modules (`api` / `core`); keep that
-  distinction deliberate — not every module needs aggregates and domain services.
+- `src/modules/*` — business modules. `booking` and `couch` use full DDD layering
+  (`domain` / `application` / `infrastructure` / `api`): aggregates with behaviour,
+  a repository interface/implementation split, command handlers dispatched through
+  the transactional command dispatcher, and query services for reads. `user` and
+  `review` remain simpler CRUD-style modules (`api` / `core`) — converting a module
+  is worthwhile when it has real domain behaviour, not merely to make every module
+  look alike.
 - `src/shared/*` — cross-cutting building blocks: `kernel` (AggregateRoot, domain
   events), `abstract-core` (command/event dispatcher contracts) and
   `infrastructure` (MikroORM, Awilix container builder, Express middleware,
