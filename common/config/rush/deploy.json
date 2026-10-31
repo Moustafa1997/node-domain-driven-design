@@ -1,0 +1,14 @@
+
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/deploy-scenario.schema.json",
+  "deploymentProjectNames": ["@travelhoop/app", "@travelhoop/scheduler"],
+  "projectSettings": [
+    {
+      "projectName": "@travelhoop/app"
+    },
+    {
+      "projectName": "@travelhoop/scheduler"
+
+    }
+  ]
+}

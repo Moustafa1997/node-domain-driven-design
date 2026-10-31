@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+  travelhoop-postgres:
+      image: postgres:10-alpine
+      container_name: travelhoop-postgres
+      ports:
+        - "5440:5432" 
+      environment:
+        POSTGRES_PASSWORD: password
+        POSTGRES_USERNAME: postgres
+        POSTGRES_DB: travelhoop
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 30s
+        timeout: 30s
+        retries: 3
+
+  travelhoop-redis:
+      image: redis:alpine
+      container_name: travelhoop-redis
+      ports:
+        - "6379:6379"
+
+  travelhoop-scheduler:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.scheduler
+      cache_from:
+        - travelhoop-scheduler:latest
+    env_file: 
+      - ./src/app/scheduler/.env

@@ -1,0 +1,76 @@
+
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+  "rushVersion": "5.42.4",
+  "pnpmVersion": "5.15.2",
+  "pnpmOptions": {
+  },
+  "nodeSupportedVersionRange": ">=16",
+  "projectFolderMinDepth": 2,
+  "projectFolderMaxDepth": 3,
+  "gitPolicy": {},
+  "repository": {
+    "url": "https://github.com/mgce/modular-monolith-nodejs",
+    "defaultBranch": "master",
+    "defaultRemote": "origin"
+  },
+  "eventHooks": {
+    "preRushInstall": [],
+    "postRushInstall": [],
+    "preRushBuild": [],
+    "postRushBuild": []
+  },
+  "variants": [],
+  "projects": [
+    {
+      "packageName": "@travelhoop/toolchain",
+      "projectFolder": "tools/toolchain",
+      "reviewCategory": "internal"
+    },
+    {
+      "packageName": "@travelhoop/app",
+      "projectFolder": "src/app/travelhoop",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/user-module",
+      "projectFolder": "src/modules/user",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/couch-module",
+      "projectFolder": "src/modules/couch",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/review-module",
+      "projectFolder": "src/modules/review",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/booking-module",
+      "projectFolder": "src/modules/booking",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/infrastructure",
+      "projectFolder": "src/shared/infrastructure",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/shared-kernel",
+      "projectFolder": "src/shared/kernel",
+      "reviewCategory": "production"
+    },
+    {
+      "packageName": "@travelhoop/scheduler",
+      "projectFolder": "src/app/scheduler",
+      "reviewCategory": "tools"
+    },
+    {
+      "packageName": "@travelhoop/abstract-core",
+      "projectFolder": "src/shared/abstract-core",
+      "reviewCategory": "tools"
+    }
+  ]
+}

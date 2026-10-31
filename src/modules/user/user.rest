@@ -1,0 +1,39 @@
+@url = http://localhost:3010/user
+@email = user1@testing.com
+
+@password = password1234
+
+@userId = 3753ddba-acc3-c25c-3d48-762ac4d8cc28
+
+@accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOnsidmFsdWUiOiIzNzUzZGRiYS1hY2MzLWMyNWMtM2Q0OC03NjJhYzRkOGNjMjgifSwiZXhwIjoxNjE4ODUxMDEzMjM1LCJpYXQiOjE2MTg4NDkyMTN9.xn1v7Bdvep5QVvnhHFvySw3WgAWGFzqLKfKPUII4EO0
+### 
+POST {{url}}/register HTTP/1.1
+content-type: application/json
+
+{
+    "email":"{{email}}",
+    "password":"{{password}}"
+}
+
+###
+GET {{url}}/{{userId}} HTTP/1.1
+content-type: application/json
+### 
+POST {{url}}/login HTTP/1.1
+content-type: application/json
+
+{
+    "email":"{{email}}",
+    "password":"{{password}}"
+}
+### 
+PUT {{url}}/{{userId}} HTTP/1.1
+content-type: application/json
+authorization: Bearer {{accessToken}}
+
+{
+    "firstName":"John",
+    "lastName":"Doe",
+    "location":"London, UK",
+    "aboutMe":"Lorem ipsum"
+}
