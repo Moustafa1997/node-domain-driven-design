@@ -3,8 +3,7 @@ require("@rushstack/eslint-patch/modern-module-resolution");
 module.exports = {
     "extends": [
       "airbnb-typescript/base",
-      "plugin:prettier/recommended",
-      "prettier/@typescript-eslint"
+      "plugin:prettier/recommended"
     ],
     "env": {
       "mocha": true

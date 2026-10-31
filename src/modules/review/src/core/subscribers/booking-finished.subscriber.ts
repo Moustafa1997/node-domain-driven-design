@@ -2,7 +2,7 @@ import { EventSubscriber, EventSubscribersMeta } from "@travelhoop/abstract-core
 import { Guid } from "guid-typescript";
 import { BookingFinished } from "../events/external/booking-finished.event";
 import { BookingReviewRepository } from "../repositories/booking-review.repository";
-import { BookingReview } from "./../entities/booking-review";
+import { BookingReview } from "../entities/booking-review";
 
 interface BookingFinishedSubscriberDependencies {
   bookingReviewRepository: BookingReviewRepository;
