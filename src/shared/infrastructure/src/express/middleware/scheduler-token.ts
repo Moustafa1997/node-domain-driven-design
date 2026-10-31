@@ -6,14 +6,16 @@ interface SchedulerTokenDependencies {
   schedulerToken: string;
 }
 
-export const checkSchedulerToken =
-  ({ schedulerToken }: SchedulerTokenDependencies) =>
-  (req: Request, _res: Response, next: NextFunction) => {
-    const token = req.headers["x-scheduler-token"];
+export const checkSchedulerToken = ({ schedulerToken }: SchedulerTokenDependencies) => (
+  req: Request,
+  _res: Response,
+  next: NextFunction,
+) => {
+  const token = req.headers["x-scheduler-token"];
 
-    if (!token || token !== schedulerToken) {
-      throw new Error("Invalid token");
-    }
+  if (!token || token !== schedulerToken) {
+    throw new Error("Invalid token");
+  }
 
-    next();
-  };
+  next();
+};

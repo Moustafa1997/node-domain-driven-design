@@ -1,5 +1,18 @@
 # Travelhoop - Modular monolith in Node.js
 
+> **Maintained by [Mustafa Fathy Abou El-Azm](https://github.com/Moustafa1997).**
+> This repository is my study and extended implementation of a Domain-Driven
+> Design modular monolith in Node.js, based on the excellent open-source project
+> [`mgce/modular-monolith-nodejs`](https://github.com/mgce/modular-monolith-nodejs).
+> On top of the original architecture I have:
+>
+> - implemented real **transactional command handling** — the `TransactionalCommandDispatcherDecorator` now wraps each command in a single database transaction (unit of work) instead of being a stub, verified against PostgreSQL;
+> - **refactored the `couch` module into full DDD layering** (`domain` / `application` / `infrastructure` / `api`) to match the `booking` module — a rich aggregate with behaviour, a repository interface/implementation split, command handlers and a query service. This also fixed a bug where couch updates were never persisted;
+> - repaired the ESLint toolchain (the shared config was broken and linting never ran) and brought every package to a lint-clean state;
+> - restored a green build / lint / test workspace (10 projects build, 18 tests pass).
+>
+> See the project's architecture notes below and the ADRs in `./docs/adr`.
+
 The project was created to demonstrate how we can create a modular monolith in Node.js. The main idea of the project was high separation of each module from each other. This allows each module to be developed independently by different teams. As the project develops this will also allow us to easily extract single modules into microservices. For this purpose, I chose a fairly well-known domain and on its example tried to present how the implementation of such an application can look like.
 In this file, as well as in the ADR, you will find implementation details as well as decisions that were made during this project. I would like every important point to be documented so that you can easily see the reasoning behind a particular choice.
 

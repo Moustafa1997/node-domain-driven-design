@@ -20,6 +20,6 @@ export class UserCreatedSubscriber implements EventSubscriber {
     if (await this.deps.profileRepository.find(profileId)) {
       return;
     }
-    return this.deps.profileRepository.add(Profile.create({ id: profileId }));
+    await this.deps.profileRepository.add(Profile.create({ id: profileId }));
   }
 }

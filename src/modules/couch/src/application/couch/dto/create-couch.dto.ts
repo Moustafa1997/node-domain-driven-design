@@ -1,9 +1,8 @@
-import { Guid } from "guid-typescript";
 import { IsNumber, IsString, Min, IsDefined } from "class-validator";
 
 export class CreateCouchDto {
   @IsDefined()
-  hostId: Guid;
+  hostId: string;
 
   @IsString()
   name: string;
